@@ -1,12 +1,10 @@
-import { RequestInit } from "node-fetch";
-
 import { HTTP, Shelf } from "../../common";
+import { BASE_URL, INNERTUBE_API_KEY, INNERTUBE_CLIENT_VERSION, I_END_POINT } from "../constants";
 import { MusicAlbumCompact } from "../MusicAlbumCompact";
 import { MusicArtistCompact } from "../MusicArtistCompact";
 import { MusicLyrics } from "../MusicLyrics";
 import { MusicPlaylistCompact } from "../MusicPlaylistCompact";
 import { MusicVideoCompact } from "../MusicVideoCompact";
-import { BASE_URL, INNERTUBE_API_KEY, INNERTUBE_CLIENT_VERSION, I_END_POINT } from "../constants";
 import { MusicSearchResultParser } from "./MusicSearchResultParser";
 
 export type MusicClientOptions = {

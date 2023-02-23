@@ -1,5 +1,4 @@
-import fetch, { HeadersInit, RequestInit, Response as FetchResponse } from "node-fetch";
-import { URLSearchParams } from "url";
+type FetchResponse = globalThis.Response;
 
 type HTTPOptions = {
 	apiKey: string;
@@ -94,7 +93,7 @@ export class HTTP {
 			body: partialOptions.data ? JSON.stringify(partialOptions.data) : undefined,
 		};
 
-		const finalUrl = `https://${this.baseUrl}/${url}?${new URLSearchParams(
+		const finalUrl = `https://${this.baseUrl}${url}?${new URLSearchParams(
 			partialOptions.params
 		)}`;
 

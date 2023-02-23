@@ -71,14 +71,13 @@ export class BaseVideoParser {
 	}
 
 	static parseRawData(data: YoutubeRawData): YoutubeRawData {
-		const contents =
+		const contents: YoutubeRawData[] =
 			data[3].response.contents.twoColumnWatchNextResults.results.results.contents;
 
-		const primaryInfo = contents.find((c: YoutubeRawData) => "videoPrimaryInfoRenderer" in c)
-			.videoPrimaryInfoRenderer;
+		const primaryInfo = contents.find(
+			(c) => "videoPrimaryInfoRenderer" in c)?.videoPrimaryInfoRenderer;
 		const secondaryInfo = contents.find(
-			(c: YoutubeRawData) => "videoSecondaryInfoRenderer" in c
-		).videoSecondaryInfoRenderer;
+			(c) => "videoSecondaryInfoRenderer" in c)?.videoSecondaryInfoRenderer;
 		const videoDetails = data[2].playerResponse.videoDetails;
 		return { ...secondaryInfo, ...primaryInfo, videoDetails };
 	}
